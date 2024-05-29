@@ -16,4 +16,5 @@ public interface InterfaceDAOUser {
     public void delete(int id);
     public List<ModelUser> getAll();
     public ModelUser authentication(String username, String password);
+    public ModelUser showProfile(Integer id);
 }

@@ -161,5 +161,33 @@ public class DAOUser implements InterfaceDAOUser {
         }
     return user;
     }
+
+    @Override
+    public ModelUser showProfile(Integer id) {
+        ModelUser user = new ModelUser();
+        try{
+            
+            String query = "SELECT * FROM profile WHERE id=?";
+            PreparedStatement statement;
+            statement = Connector.Connect().prepareStatement(query);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            
+            user.setId(resultSet.getInt("id"));
+            user.setNama(resultSet.getString("nama"));
+            user.setUsername(resultSet.getString("username"));
+            user.setPassword(resultSet.getString("password"));
+            user.setKelamin(resultSet.getString("kelamin"));
+            user.setNoHp(resultSet.getString("no_hp"));
+            
+            statement.close();
+        }catch(SQLException e){
+            System.out.println("Error: " + e.getLocalizedMessage());
+        }
+    return user;
+    }
+    
+    
 }
     

@@ -4,6 +4,10 @@
  */
 package view;
 
+import controller.ControllerRumah;
+import controller.ControllerUser;
+import javax.swing.JTable;
+
 /**
  *
  * @author adity
@@ -13,8 +17,13 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
     /**
      * Creates new form Menu_Utama
      */
+    ControllerRumah controller;
+    ControllerUser userController;
+    
     public Menu_Utama_Penjual() {
         initComponents();
+        controller = new ControllerRumah(this);
+        controller.showSellHouse();
     }
 
     /**
@@ -221,6 +230,9 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public JTable getTableRumah() {
+        return Tabeljual;
+    }
     /**
      * @param args the command line arguments
      */

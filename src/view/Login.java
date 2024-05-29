@@ -16,6 +16,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
     ControllerUser controller;
     public Login() {
         initComponents();
@@ -79,6 +80,11 @@ public class Login extends javax.swing.JFrame {
 
         buttonregister.setBackground(new java.awt.Color(22, 121, 171));
         buttonregister.setText("Register");
+        buttonregister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonregisterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -176,6 +182,14 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Username atau Password Salah!");
         }
     }//GEN-LAST:event_buttonloginActionPerformed
+
+    private void buttonregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonregisterActionPerformed
+        Register reg = new Register();
+        reg.setVisible(true);
+        reg.pack();
+        reg.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonregisterActionPerformed
 
     /**
      * @param args the command line arguments

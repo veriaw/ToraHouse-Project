@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.ControllerUser;
+
 /**
  *
  * @author adity
@@ -13,8 +15,11 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
+    
+    ControllerUser controller;
     public Register() {
         initComponents();
+        controller = new ControllerUser(this);
     }
 
     /**
@@ -98,28 +103,29 @@ public class Register extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(40, 40, 40)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inputnama)
-                            .addComponent(inputusername)
-                            .addComponent(buttondaftar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inputpassword)
-                            .addComponent(jeniskelamin, 0, 393, Short.MAX_VALUE)
-                            .addComponent(inputnotelp)))
+                            .addComponent(inputpassword, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(inputnama)
+                                .addComponent(inputusername)
+                                .addComponent(buttondaftar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jeniskelamin, 0, 393, Short.MAX_VALUE)
+                                .addComponent(inputnotelp, javax.swing.GroupLayout.Alignment.TRAILING))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
@@ -135,15 +141,15 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputusername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputnotelp, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addComponent(buttondaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -176,9 +182,33 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttondaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttondaftarActionPerformed
-        // TODO add your handling code here:
+        controller.register();
+        Menu_Utama_Pembeli buy = new Menu_Utama_Pembeli();
+        buy.setVisible(true);
+        buy.pack();
+        buy.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttondaftarActionPerformed
-
+    
+    public String getInputNama() {
+        return inputnama.getText();
+    }
+    
+    public String getUsername() {
+        return inputusername.getText();
+    }
+    
+    public String getPassword() {
+        return inputpassword.getText();
+    }
+    
+    public String getKelamin() {
+        return jeniskelamin.getSelectedItem().toString();
+    }
+    
+    public String getNoHp(){
+        return inputnotelp.getText();
+    }
     /**
      * @param args the command line arguments
      */

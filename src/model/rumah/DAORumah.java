@@ -4,6 +4,7 @@
  */
 package model.rumah;
 
+import controller.ControllerUser;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -142,5 +143,42 @@ public class DAORumah implements InterfaceDAORumah {
         }
         return listRumah;
     }
+
+    @Override
+    public List<ModelRumah> getShowSell(Integer id) {
+        List<ModelRumah> listRumah = null;
+        try{
+            listRumah = new ArrayList<>();
+            String query = "SELECT * FROM sell_house WHERE seller_id=?;";
+            PreparedStatement statement;
+            statement = Connector.Connect().prepareStatement(query);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                ModelRumah home = new ModelRumah();
+  
+                home.setId(resultSet.getInt("id"));
+                home.setAlamat(resultSet.getString("alamat"));
+                home.setLuasTanah(resultSet.getInt("luas_tanah"));
+                home.setLuasBangunan(resultSet.getInt("luas_bangunan"));
+                home.setKamarTidur(resultSet.getInt("kamar_tidur"));
+                home.setKamarMandi(resultSet.getInt("kamar_mandi"));
+                home.setGarasi(resultSet.getInt("garasi"));
+                home.setPrice(resultSet.getInt("start_price"));
+                home.setStatus(resultSet.getString("status"));
+                
+                listRumah.add(home);
+            }
+            
+            // Menutup koneksi untuk menghemat penggunaan memory.
+            statement.close();
+        }catch(SQLException e){
+            System.out.println("Error: " + e.getLocalizedMessage());
+        }
+        return listRumah;
+    }
+    
+    
 }
     
