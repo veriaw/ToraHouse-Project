@@ -29,7 +29,6 @@ public class ControllerUser {
     public boolean autentikasi(String username, String password){
        
         user=daoUser.authentication(username, password);
-        System.out.println(user.getPassword());
         if(user.getUsername().equals(username) && user.getPassword().equals(password)){
             return true;
         }
