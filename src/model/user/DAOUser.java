@@ -147,6 +147,7 @@ public class DAOUser implements InterfaceDAOUser {
             statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();
             resultSet.next();
+            
             user.setId(resultSet.getInt("id"));
             user.setNama(resultSet.getString("nama"));
             user.setUsername(resultSet.getString("username"));

@@ -5,6 +5,7 @@
 package view;
 
 import controller.ControllerUser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -171,6 +172,8 @@ public class Login extends javax.swing.JFrame {
             sell.pack();
             sell.setLocationRelativeTo(null);
             this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null,"Username atau Password Salah!");
         }
     }//GEN-LAST:event_buttonloginActionPerformed
 
