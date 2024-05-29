@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.ControllerUser;
+import model.user.ModelUser;
+
 /**
  *
  * @author adity
@@ -15,6 +18,12 @@ public class Profile extends javax.swing.JFrame {
      */
     public Profile() {
         initComponents();
+        ModelUser currentUser = new ModelUser();
+        currentUser=ControllerUser.getCurrentUser();
+        jLabel4.setText(currentUser.getNama());
+        jLabel11.setText(currentUser.getKelamin());
+        jLabel12.setText(currentUser.getUsername());
+        jLabel13.setText(currentUser.getNoHp());
     }
 
     /**
@@ -52,6 +61,11 @@ public class Profile extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         buttonhistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/history.png"))); // NOI18N
+        buttonhistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonhistoryActionPerformed(evt);
+            }
+        });
 
         buttonsell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-us-dollar-circled-50.png"))); // NOI18N
         buttonsell.addActionListener(new java.awt.event.ActionListener() {
@@ -192,6 +206,11 @@ public class Profile extends javax.swing.JFrame {
 
         buttonlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-logout-32.png"))); // NOI18N
         buttonlogout.setText("Logout");
+        buttonlogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonlogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -284,8 +303,30 @@ public class Profile extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonprofileActionPerformed
 
     private void buttonbuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonbuyActionPerformed
-        // TODO add your handling code here:
+        Menu_Utama_Pembeli buy = new Menu_Utama_Pembeli();
+        buy.setVisible(true);
+        buy.pack();
+        buy.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttonbuyActionPerformed
+
+    private void buttonlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonlogoutActionPerformed
+        Login logout = new Login();
+        ControllerUser.setCurrentUser(null);
+        logout.setVisible(true);
+        logout.pack();
+        logout.setLocationRelativeTo(null);
+        this.dispose();
+        
+    }//GEN-LAST:event_buttonlogoutActionPerformed
+
+    private void buttonhistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonhistoryActionPerformed
+        History history = new History();
+        history.setVisible(true);
+        history.pack();
+        history.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonhistoryActionPerformed
 
     /**
      * @param args the command line arguments

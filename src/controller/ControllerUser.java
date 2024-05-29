@@ -37,6 +37,7 @@ public class ControllerUser {
         this.sell = sell;
         this.daoUser = new DAOUser();
     }
+     
 
     public static ModelUser getCurrentUser() {
         return currentUser;

@@ -99,6 +99,9 @@
               <Image iconType="3" name="/view/history.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonhistoryActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonsell">
           <Properties>
@@ -353,6 +356,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Logout"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonlogoutActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

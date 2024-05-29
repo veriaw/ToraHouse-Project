@@ -56,6 +56,11 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         buttonhistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/history.png"))); // NOI18N
+        buttonhistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonhistoryActionPerformed(evt);
+            }
+        });
 
         buttonsell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-us-dollar-circled-50.png"))); // NOI18N
 
@@ -254,7 +259,11 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
     }//GEN-LAST:event_buttoninsertActionPerformed
 
     private void buttonprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonprofileActionPerformed
-        // TODO add your handling code here:
+        Profile profile = new Profile();
+        profile.setVisible(true);
+        profile.pack();
+        profile.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttonprofileActionPerformed
 
     private void TabeljualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabeljualMouseClicked
@@ -273,6 +282,14 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void buttonhistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonhistoryActionPerformed
+        History history = new History();
+        history.setVisible(true);
+        history.pack();
+        history.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonhistoryActionPerformed
 
     public JTable getTableRumah() {
         return Tabeljual;

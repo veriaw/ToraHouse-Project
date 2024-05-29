@@ -210,6 +210,42 @@ public class DAORumah implements InterfaceDAORumah {
         }
         return home;
     }
+
+    @Override
+    public List<ModelRumah> filterHouse(Integer max, Integer min) {
+         List<ModelRumah> listRumah = null;
+        try{
+            listRumah = new ArrayList<>();
+            String query = "SELECT * FROM sell_house WHERE start_price<=? && start_price>=?;";
+            PreparedStatement statement;
+            statement = Connector.Connect().prepareStatement(query);
+            statement.setInt(1, max);
+            statement.setInt(2, min);
+            ResultSet resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                ModelRumah home = new ModelRumah();
+  
+                home.setId(resultSet.getInt("id"));
+                home.setAlamat(resultSet.getString("alamat"));
+                home.setLuasTanah(resultSet.getInt("luas_tanah"));
+                home.setLuasBangunan(resultSet.getInt("luas_bangunan"));
+                home.setKamarTidur(resultSet.getInt("kamar_tidur"));
+                home.setKamarMandi(resultSet.getInt("kamar_mandi"));
+                home.setGarasi(resultSet.getInt("garasi"));
+                home.setPrice(resultSet.getInt("start_price"));
+                home.setStatus(resultSet.getString("status"));
+                
+                listRumah.add(home);
+            }
+            
+            // Menutup koneksi untuk menghemat penggunaan memory.
+            statement.close();
+        }catch(SQLException e){
+            System.out.println("Error: " + e.getLocalizedMessage());
+        }
+        return listRumah;
+    }
     
     
 }

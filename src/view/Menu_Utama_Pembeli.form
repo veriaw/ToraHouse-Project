@@ -113,6 +113,9 @@
                   <Image iconType="3" name="/view/history.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonhistoryActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonsell">
               <Properties>
@@ -164,13 +167,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="inputfilterharga" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Component id="inputmin" min="-2" pref="97" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="inputfilterhargamax" min="-2" pref="91" max="-2" attributes="0"/>
+                                  <Component id="inputmax" min="-2" pref="91" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
@@ -227,8 +230,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="inputfilterharga" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="inputfilterhargamax" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="inputmin" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="inputmax" min="-2" pref="35" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="buttonfilterharga" min="-2" pref="45" max="-2" attributes="0"/>
@@ -306,6 +309,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TabelbeliMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -328,7 +334,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttontawar1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="inputfilterharga">
+            <Component class="javax.swing.JTextField" name="inputmin">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -338,7 +344,7 @@
                 <Property name="text" type="java.lang.String" value="FILTER BY HARGA "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="inputfilterhargamax">
+            <Component class="javax.swing.JTextField" name="inputmax">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
@@ -365,6 +371,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="SHOW MARKET"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonshowmarketActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonbatalkanoffer">
               <Properties>

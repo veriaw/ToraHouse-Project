@@ -21,6 +21,7 @@ public class ControllerRumah {
     Menu_Utama_Penjual halamanTable2;
     Sell sell;
     Update up;
+    Tawar offer;
     private static Integer house_id;
     Detail_Buy detail;
     InterfaceDAORumah daoRumah;
@@ -50,10 +51,20 @@ public class ControllerRumah {
         this.up = up;
         this.daoRumah = new DAORumah();
     }
+    
+    public ControllerRumah(Tawar offer) {
+        this.offer = offer;
+        this.daoRumah = new DAORumah();
+    }
 
     public static void setHouse_id(Integer house_id) {
         ControllerRumah.house_id = house_id;
     }
+
+    public static Integer getHouse_id() {
+        return house_id;
+    }
+    
     
     public void sellHouse(){
         ModelRumah home= new ModelRumah();
@@ -122,8 +133,22 @@ public class ControllerRumah {
         detail.setStatus(rumah.getStatus());
     }
     
+    public void showOfferedHouse(){
+        
+        System.out.println(house_id);
+        ModelRumah rumah = new ModelRumah();
+        rumah=daoRumah.getCurrentHouse(house_id);
+        offer.setAlamat(rumah.getAlamat());
+        offer.setLuasTanah(rumah.getLuasTanah());
+        offer.setLuasBangunan(rumah.getLuasBangunan());
+        offer.setKamarMandi(rumah.getKamarMandi());
+        offer.setKamarTidur(rumah.getKamarTidur());
+        offer.setGarasi(rumah.getGarasi());
+        offer.setPrice(rumah.getPrice());
+        offer.setStatus(rumah.getStatus());
+    }
+    
     public void updateHouse(){
-        System.out.println(up.getInputAlamat());
         ModelRumah home= new ModelRumah();
         home.setAlamat(up.getInputAlamat());
         home.setLuasTanah(up.getLuasTanah());
@@ -135,5 +160,13 @@ public class ControllerRumah {
         home.setId(house_id);
         
         daoRumah.update(home);
+    }
+    
+    public void filterByPrice(){
+        Integer min=halamanTable.getMinPrice();
+        Integer max=halamanTable.getMaxPrice();
+        daftarRumah=daoRumah.filterHouse(max, min);
+        ModelTableRumah table = new ModelTableRumah(daftarRumah);
+        halamanTable.getTableRumah().setModel(table);
     }
 }

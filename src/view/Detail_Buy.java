@@ -276,7 +276,11 @@ public class Detail_Buy extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonkembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonkembaliActionPerformed
-        // TODO add your handling code here:
+        Menu_Utama_Penjual sell = new Menu_Utama_Penjual();
+        sell.setVisible(true);
+        sell.pack();
+        sell.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttonkembaliActionPerformed
 
     /**

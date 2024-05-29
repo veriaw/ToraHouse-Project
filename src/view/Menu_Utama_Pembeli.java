@@ -17,7 +17,7 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
      * Creates new form Menu_Utama_Pembeli
      */
     ControllerRumah controller;
-    
+    Integer baris;
     public Menu_Utama_Pembeli() {
         initComponents();
         controller = new ControllerRumah(this);
@@ -45,9 +45,9 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
         Tabelbeli = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         buttontawar1 = new javax.swing.JButton();
-        inputfilterharga = new javax.swing.JTextField();
+        inputmin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        inputfilterhargamax = new javax.swing.JTextField();
+        inputmax = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         buttonshowoffer = new javax.swing.JToggleButton();
@@ -61,6 +61,11 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
         buttonhistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/history.png"))); // NOI18N
+        buttonhistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonhistoryActionPerformed(evt);
+            }
+        });
 
         buttonsell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-us-dollar-circled-50.png"))); // NOI18N
         buttonsell.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,11 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Tabelbeli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelbeliMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(Tabelbeli);
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 36)); // NOI18N
@@ -157,6 +167,11 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
 
         buttonshowmarket.setBackground(new java.awt.Color(0, 204, 204));
         buttonshowmarket.setText("SHOW MARKET");
+        buttonshowmarket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonshowmarketActionPerformed(evt);
+            }
+        });
 
         buttonbatalkanoffer.setBackground(new java.awt.Color(204, 0, 51));
         buttonbatalkanoffer.setText("Batalkan Offer");
@@ -172,12 +187,12 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputfilterharga, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputmin, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(inputfilterhargamax, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(inputmax, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,8 +234,8 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(9, 9, 9)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inputfilterharga, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inputfilterhargamax, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(inputmin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputmax, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(buttonfilterharga, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(120, 120, 120)
@@ -274,19 +289,34 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
     
     
     private void buttonprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonprofileActionPerformed
-        // TODO add your handling code here:
+        Profile profile = new Profile();
+        profile.setVisible(true);
+        profile.pack();
+        profile.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttonprofileActionPerformed
 
+    
+    
     private void buttonbuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonbuyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonbuyActionPerformed
 
     private void buttonfilterhargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonfilterhargaActionPerformed
-        // TODO add your handling code here:
+        controller.filterByPrice();
     }//GEN-LAST:event_buttonfilterhargaActionPerformed
 
     private void buttontawar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttontawar1ActionPerformed
-        // TODO add your handling code here:
+        if(baris!=null){
+            Integer id = (int) this.getTableRumah().getValueAt(baris, 0);
+            controller.setHouse_id(id);
+            Tawar tawar = new Tawar();
+            tawar.setVisible(true);
+            tawar.pack();
+            tawar.setLocationRelativeTo(null);
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_buttontawar1ActionPerformed
 
     private void buttonsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonsellActionPerformed
@@ -296,9 +326,33 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
         sell.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_buttonsellActionPerformed
+
+    private void buttonhistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonhistoryActionPerformed
+        History history = new History();
+        history.setVisible(true);
+        history.pack();
+        history.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonhistoryActionPerformed
+
+    private void TabelbeliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelbeliMouseClicked
+        baris=Tabelbeli.getSelectedRow();
+    }//GEN-LAST:event_TabelbeliMouseClicked
+
+    private void buttonshowmarketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonshowmarketActionPerformed
+        controller.showAllHouse();
+    }//GEN-LAST:event_buttonshowmarketActionPerformed
     
     public JTable getTableRumah() {
         return Tabelbeli;
+    }
+    
+    public Integer getMinPrice(){
+        return Integer.valueOf(inputmin.getText());
+    }
+    
+    public Integer getMaxPrice(){
+        return Integer.valueOf(inputmax.getText());
     }
     /**
      * @param args the command line arguments
@@ -346,8 +400,8 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
     private javax.swing.JButton buttonshowmarket;
     private javax.swing.JToggleButton buttonshowoffer;
     private javax.swing.JButton buttontawar1;
-    private javax.swing.JTextField inputfilterharga;
-    private javax.swing.JTextField inputfilterhargamax;
+    private javax.swing.JTextField inputmax;
+    private javax.swing.JTextField inputmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

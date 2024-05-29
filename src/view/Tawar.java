@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.*;
+import model.rumah.ModelRumah;
+
 /**
  *
  * @author adity
@@ -13,10 +16,52 @@ public class Tawar extends javax.swing.JFrame {
     /**
      * Creates new form Tawar
      */
+    ControllerRumah controller;
+    ControllerAuctioneer auction;
     public Tawar() {
         initComponents();
+        controller=new ControllerRumah(this);
+        auction = new ControllerAuctioneer(this);
+        controller.showOfferedHouse();
     }
 
+    
+    public void setAlamat(String alamat) {
+        labelalamat.setText(alamat);
+    }
+    
+    public void setLuasTanah(Integer luasTanah) {
+        labelluastanah.setText(String.valueOf(luasTanah));
+    }
+    
+    public void setLuasBangunan(Integer luasBangunan) {
+        labelluasbangunan.setText(String.valueOf(luasBangunan));
+    }
+    
+    public void setKamarMandi(Integer kamarMandi) {
+        labelkamarmandi.setText(String.valueOf(kamarMandi));
+    }
+    
+    public void setKamarTidur(Integer kamarTidur) {
+        labelkamartidur.setText(String.valueOf(kamarTidur));
+    }
+    
+    public void setGarasi(Integer garasi) {
+        labelgarasi.setText(String.valueOf(garasi));
+    }
+    
+    public void setPrice(Integer price) {
+        labelstartprice.setText(String.valueOf(price));
+    }
+    
+    public void setStatus(String status) {
+        labelstatus.setText(status);
+    }
+    
+    public Integer getBargain(){
+        return Integer.valueOf(inputtawarharga.getText());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +105,11 @@ public class Tawar extends javax.swing.JFrame {
         buttonsubmittawar.setBackground(new java.awt.Color(0, 153, 153));
         buttonsubmittawar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         buttonsubmittawar.setText("Submit");
+        buttonsubmittawar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonsubmittawarActionPerformed(evt);
+            }
+        });
 
         buttonkembali.setBackground(new java.awt.Color(0, 204, 204));
         buttonkembali.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -233,8 +283,21 @@ public class Tawar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonkembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonkembaliActionPerformed
-        // TODO add your handling code here:
+        Menu_Utama_Pembeli buy = new Menu_Utama_Pembeli();
+        buy.setVisible(true);
+        buy.pack();
+        buy.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttonkembaliActionPerformed
+
+    private void buttonsubmittawarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonsubmittawarActionPerformed
+        auction.bargain();
+        Menu_Utama_Pembeli buy = new Menu_Utama_Pembeli();
+        buy.setVisible(true);
+        buy.pack();
+        buy.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonsubmittawarActionPerformed
 
     /**
      * @param args the command line arguments

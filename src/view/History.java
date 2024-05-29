@@ -164,7 +164,11 @@ public class History extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonsell8ActionPerformed
 
     private void buttonprofile8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonprofile8ActionPerformed
-        // TODO add your handling code here:
+        Profile profile = new Profile();
+        profile.setVisible(true);
+        profile.pack();
+        profile.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttonprofile8ActionPerformed
 
     private void buttonbuy8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonbuy8ActionPerformed

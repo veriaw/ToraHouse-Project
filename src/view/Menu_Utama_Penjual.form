@@ -88,6 +88,9 @@
               <Image iconType="3" name="/view/history.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonhistoryActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonsell">
           <Properties>

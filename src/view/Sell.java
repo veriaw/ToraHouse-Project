@@ -259,7 +259,11 @@ public class Sell extends javax.swing.JFrame {
     }//GEN-LAST:event_inputstartpriceActionPerformed
 
     private void buttonkembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonkembaliActionPerformed
-        // TODO add your handling code here:
+        Menu_Utama_Penjual sell = new Menu_Utama_Penjual();
+        sell.setVisible(true);
+        sell.pack();
+        sell.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttonkembaliActionPerformed
 
     
