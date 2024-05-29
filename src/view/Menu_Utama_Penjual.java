@@ -29,7 +29,7 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         buttonhistory = new javax.swing.JButton();
         buttonsell = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonprofile = new javax.swing.JButton();
         buttonbuy = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -48,11 +48,10 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
 
         buttonsell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-us-dollar-circled-50.png"))); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-logout-32.png"))); // NOI18N
-        jButton2.setText("Logout");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/user_9073292 (1).png"))); // NOI18N
+        buttonprofile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonprofileActionPerformed(evt);
             }
         });
 
@@ -75,7 +74,7 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(buttonhistory, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         jPanel1Layout.setVerticalGroup(
@@ -86,7 +85,7 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
                     .addComponent(buttonbuy, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonhistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonsell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -217,9 +216,9 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttoninsertActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonprofileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonprofileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,9 +263,9 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
     private javax.swing.JButton buttonhistory;
     private javax.swing.JButton buttoninsert;
     private javax.swing.JButton buttoninsert1;
+    private javax.swing.JButton buttonprofile;
     private javax.swing.JButton buttonsell;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
