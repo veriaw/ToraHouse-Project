@@ -4,6 +4,7 @@
  */
 package model.rumah;
 
+import controller.ControllerRumah;
 import controller.ControllerUser;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +25,7 @@ public class DAORumah implements InterfaceDAORumah {
     public void insert(ModelRumah rumah) {
         try {
             // Perintah query disimpan ke dalam variabel "query"
-            String query = "INSERT INTO sell_house (alamat, luas_tanah, luas_bangunan, kamar_tidur, kamar_mandi, garasi, price, status) VALUES (?, ?, ?, ?, ?, ?, ?, 'ForSale');";
+            String query = "INSERT INTO sell_house (alamat, luas_tanah, luas_bangunan, kamar_tidur, kamar_mandi, garasi, start_price, status, seller_id) VALUES (?, ?, ?, ?, ?, ?, ?, 'ForSale', ?);";
             
             /* 
               Memasukkan nama dan nim dari input user 
@@ -40,7 +41,7 @@ public class DAORumah implements InterfaceDAORumah {
             statement.setInt(5, rumah.getKamarMandi());
             statement.setInt(6, rumah.getGarasi());
             statement.setInt(7, rumah.getPrice());
-            statement.setString(8, rumah.getStatus());
+            statement.setInt(8, ControllerUser.getCurrentUser().getId());
             
             // Menjalankan query untuk menghapus data mahasiswa yang dipilih
             statement.executeUpdate();
@@ -57,7 +58,7 @@ public class DAORumah implements InterfaceDAORumah {
     public void update(ModelRumah rumah) {
         try {
             // Perintah query disimpan ke dalam variabel "query"
-            String query = "UPDATE sell_house SET alamat=?, luas_tanah=?, luas_bangunan=?, kamar_tidur=?, kamar_mandi=?, garasi=?, start_price=?, status=? WHERE id=?;";
+            String query = "UPDATE sell_house SET alamat=?, luas_tanah=?, luas_bangunan=?, kamar_tidur=?, kamar_mandi=?, garasi=?, start_price=? WHERE id=?;";
             
             /* 
               Memasukkan nama dan nim dari input user 
@@ -73,8 +74,7 @@ public class DAORumah implements InterfaceDAORumah {
             statement.setInt(5, rumah.getKamarMandi());
             statement.setInt(6, rumah.getGarasi());
             statement.setInt(7, rumah.getPrice());
-            statement.setString(8, rumah.getStatus());
-            statement.setInt(9, rumah.getId());
+            statement.setInt(8, rumah.getId());
             // Menjalankan query untuk menghapus data mahasiswa yang dipilih
             statement.executeUpdate();
             
@@ -177,6 +177,38 @@ public class DAORumah implements InterfaceDAORumah {
             System.out.println("Error: " + e.getLocalizedMessage());
         }
         return listRumah;
+    }
+
+    @Override
+    public ModelRumah getCurrentHouse(Integer id) {
+        ModelRumah home = new ModelRumah();
+        try{
+            
+            String query = "SELECT * FROM sell_house WHERE id=?;";
+            PreparedStatement statement;
+            statement = Connector.Connect().prepareStatement(query);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            
+            resultSet.next();
+            
+            home.setId(resultSet.getInt("id"));
+            home.setAlamat(resultSet.getString("alamat"));
+            home.setLuasTanah(resultSet.getInt("luas_tanah"));
+            home.setLuasBangunan(resultSet.getInt("luas_bangunan"));
+            home.setKamarTidur(resultSet.getInt("kamar_tidur"));
+            home.setKamarMandi(resultSet.getInt("kamar_mandi"));
+            home.setGarasi(resultSet.getInt("garasi"));
+            home.setPrice(resultSet.getInt("start_price"));
+            home.setStatus(resultSet.getString("status"));
+            
+            
+            // Menutup koneksi untuk menghemat penggunaan memory.
+            statement.close();
+        }catch(SQLException e){
+            System.out.println("Error: " + e.getLocalizedMessage());
+        }
+        return home;
     }
     
     

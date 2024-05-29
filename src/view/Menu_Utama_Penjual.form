@@ -61,7 +61,7 @@
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Component id="buttonhistory" min="-2" pref="130" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="130" max="-2" attributes="0"/>
+                  <Component id="buttonprofile" min="-2" pref="130" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -74,7 +74,7 @@
                       <Component id="buttonbuy" min="-2" pref="58" max="-2" attributes="0"/>
                       <Component id="buttonhistory" alignment="0" max="32767" attributes="0"/>
                       <Component id="buttonsell" max="32767" attributes="0"/>
-                      <Component id="jButton2" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="buttonprofile" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
               </Group>
@@ -96,15 +96,14 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="buttonprofile">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/view/icons8-logout-32.png"/>
+              <Image iconType="3" name="/view/user_9073292 (1).png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Logout"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonprofileActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonbuy">
@@ -182,6 +181,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="UPDATE"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttondetail">
           <Properties>
@@ -234,6 +236,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TabeljualMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

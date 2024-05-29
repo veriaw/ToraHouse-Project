@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.ControllerRumah;
+import model.rumah.ModelRumah;
+
 /**
  *
  * @author adity
@@ -13,8 +16,45 @@ public class Detail_Buy extends javax.swing.JFrame {
     /**
      * Creates new form Detail
      */
+    ControllerRumah controller;
+    
     public Detail_Buy() {
         initComponents();
+        controller = new ControllerRumah(this);
+        controller.showCurrentHouse();
+        
+    }
+    
+    public void setAlamat(String alamat) {
+        labelalamat.setText(alamat);
+    }
+    
+    public void setLuasTanah(Integer luasTanah) {
+        labelluastanah.setText(String.valueOf(luasTanah));
+    }
+    
+    public void setLuasBangunan(Integer luasBangunan) {
+        labelluasbangunan.setText(String.valueOf(luasBangunan));
+    }
+    
+    public void setKamarMandi(Integer kamarMandi) {
+        labelkamarmandi.setText(String.valueOf(kamarMandi));
+    }
+    
+    public void setKamarTidur(Integer kamarTidur) {
+        labelkamartidur.setText(String.valueOf(kamarTidur));
+    }
+    
+    public void setGarasi(Integer garasi) {
+        labelgarasi.setText(String.valueOf(garasi));
+    }
+    
+    public void setPrice(Integer price) {
+        labelstartprice.setText(String.valueOf(price));
+    }
+    
+    public void setStatus(String status) {
+        labelstatus.setText(status);
     }
 
     /**
@@ -33,7 +73,6 @@ public class Detail_Buy extends javax.swing.JFrame {
         labelkamartidur = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         labelkamarmandi = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         labelgarasi = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -42,12 +81,14 @@ public class Detail_Buy extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        labelharga = new javax.swing.JLabel();
         labelalamat = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        labelstatus = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabeldetail = new javax.swing.JTable();
         buttonambiltawaran = new javax.swing.JToggleButton();
+        buttonkembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,8 +103,6 @@ public class Detail_Buy extends javax.swing.JFrame {
         jLabel1.setText("Alamat Rumah");
 
         labelkamarmandi.setText("--Data Kamar  Mandi--");
-
-        jLabel2.setText("Harga");
 
         labelgarasi.setText("--Data Garasi--");
 
@@ -81,9 +120,11 @@ public class Detail_Buy extends javax.swing.JFrame {
 
         jLabel7.setText("Jumlah Garasi");
 
-        labelharga.setText("--Data Harga--");
-
         labelalamat.setText("--Data Alamat Rumah--");
+
+        jLabel16.setText("Status");
+
+        labelstatus.setText("--Data Start Price--");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -92,63 +133,61 @@ public class Detail_Buy extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel15)
                     .addComponent(jLabel7)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel15))
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelgarasi)
-                            .addComponent(labelkamartidur)
-                            .addComponent(labelalamat)
-                            .addComponent(labelkamarmandi)
-                            .addComponent(labelstartprice)
-                            .addComponent(labelluastanah)
-                            .addComponent(labelluasbangunan)
-                            .addComponent(labelharga))))
+                    .addComponent(jLabel16))
+                .addGap(78, 78, 78)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelstatus)
+                    .addComponent(labelgarasi)
+                    .addComponent(labelkamartidur)
+                    .addComponent(labelalamat)
+                    .addComponent(labelkamarmandi)
+                    .addComponent(labelstartprice)
+                    .addComponent(labelluastanah)
+                    .addComponent(labelluasbangunan))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(labelalamat))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(labelharga))
+                    .addComponent(labelalamat)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(labelluasbangunan))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(labelluastanah))
+                    .addComponent(labelluastanah)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(labelkamartidur))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelkamarmandi)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(labelkamarmandi))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelgarasi)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel7)
+                    .addComponent(labelgarasi))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelstartprice)
                     .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(labelstatus))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -172,6 +211,14 @@ public class Detail_Buy extends javax.swing.JFrame {
         buttonambiltawaran.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         buttonambiltawaran.setText("AMBIL TAWARAN");
 
+        buttonkembali.setBackground(new java.awt.Color(0, 204, 153));
+        buttonkembali.setText("KEMBALI KE MENU");
+        buttonkembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonkembaliActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -188,7 +235,9 @@ public class Detail_Buy extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(117, 117, 117)
+                .addComponent(buttonkembali, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonambiltawaran)
                 .addGap(170, 170, 170))
         );
@@ -202,8 +251,10 @@ public class Detail_Buy extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(buttonambiltawaran, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonkembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonambiltawaran, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,6 +274,10 @@ public class Detail_Buy extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonkembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonkembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonkembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,9 +318,10 @@ public class Detail_Buy extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabeldetail;
     private javax.swing.JToggleButton buttonambiltawaran;
+    private javax.swing.JButton buttonkembali;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -277,11 +333,11 @@ public class Detail_Buy extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelalamat;
     private javax.swing.JLabel labelgarasi;
-    private javax.swing.JLabel labelharga;
     private javax.swing.JLabel labelkamarmandi;
     private javax.swing.JLabel labelkamartidur;
     private javax.swing.JLabel labelluasbangunan;
     private javax.swing.JLabel labelluastanah;
     private javax.swing.JLabel labelstartprice;
+    private javax.swing.JLabel labelstatus;
     // End of variables declaration//GEN-END:variables
 }

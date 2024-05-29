@@ -37,7 +37,7 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         buttonhistory = new javax.swing.JButton();
         buttonsell = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonprofile = new javax.swing.JButton();
         buttonbuy = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         buttonfilterharga = new javax.swing.JButton();
@@ -69,11 +69,11 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-logout-32.png"))); // NOI18N
-        jButton2.setText("Logout");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/user_9073292 (1).png"))); // NOI18N
+        buttonprofile.setActionCommand("Profile");
+        buttonprofile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonprofileActionPerformed(evt);
             }
         });
 
@@ -96,7 +96,7 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(buttonhistory, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -107,7 +107,7 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
                     .addComponent(buttonbuy, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonhistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonsell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -273,9 +273,9 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
 
     
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonprofileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonprofileActionPerformed
 
     private void buttonbuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonbuyActionPerformed
         // TODO add your handling code here:
@@ -341,13 +341,13 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
     private javax.swing.JButton buttonbuy;
     private javax.swing.JButton buttonfilterharga;
     private javax.swing.JButton buttonhistory;
+    private javax.swing.JButton buttonprofile;
     private javax.swing.JButton buttonsell;
     private javax.swing.JButton buttonshowmarket;
     private javax.swing.JToggleButton buttonshowoffer;
     private javax.swing.JButton buttontawar1;
     private javax.swing.JTextField inputfilterharga;
     private javax.swing.JTextField inputfilterhargamax;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

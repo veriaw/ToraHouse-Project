@@ -16,4 +16,5 @@ public interface InterfaceDAORumah {
     public void delete(int id);
     public List<ModelRumah> getAll();
     public List<ModelRumah> getShowSell(Integer id);
+    public ModelRumah getCurrentHouse(Integer id);
 }

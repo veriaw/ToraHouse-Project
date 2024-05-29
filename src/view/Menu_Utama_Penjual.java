@@ -19,6 +19,8 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
      */
     ControllerRumah controller;
     ControllerUser userController;
+   
+    Integer baris;
     
     public Menu_Utama_Penjual() {
         initComponents();
@@ -38,7 +40,7 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         buttonhistory = new javax.swing.JButton();
         buttonsell = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonprofile = new javax.swing.JButton();
         buttonbuy = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -57,11 +59,10 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
 
         buttonsell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-us-dollar-circled-50.png"))); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-logout-32.png"))); // NOI18N
-        jButton2.setText("Logout");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/user_9073292 (1).png"))); // NOI18N
+        buttonprofile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonprofileActionPerformed(evt);
             }
         });
 
@@ -84,7 +85,7 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(buttonhistory, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,7 +96,7 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
                     .addComponent(buttonbuy, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonhistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonsell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -103,6 +104,11 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-update-50 (1).png"))); // NOI18N
         jButton1.setText("UPDATE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         buttondetail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons8-detail-30.png"))); // NOI18N
         buttondetail.setText("DETAIL");
@@ -139,6 +145,11 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Tabeljual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabeljualMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(Tabeljual);
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 36)); // NOI18N
@@ -215,20 +226,53 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonbuyActionPerformed
 
     private void buttoninsert1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttoninsert1ActionPerformed
-        // TODO add your handling code here:
+        if(baris!=null){
+        controller.cancelSell(baris);
+        controller.showSellHouse();
+        }
     }//GEN-LAST:event_buttoninsert1ActionPerformed
 
     private void buttondetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttondetailActionPerformed
-        // TODO add your handling code here:
+
+        if(baris!=null){
+        Integer id = (int) this.getTableRumah().getValueAt(baris, 0);
+        controller.setHouse_id(id);
+        Detail_Buy detail = new Detail_Buy();
+        detail.setVisible(true);
+        detail.pack();
+        detail.setLocationRelativeTo(null);
+        this.dispose();
+        }
     }//GEN-LAST:event_buttondetailActionPerformed
 
     private void buttoninsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttoninsertActionPerformed
-        // TODO add your handling code here:
+        Sell sellHouse = new Sell();
+        sellHouse.setVisible(true);
+        sellHouse.pack();
+        sellHouse.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttoninsertActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonprofileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonprofileActionPerformed
+
+    private void TabeljualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabeljualMouseClicked
+        baris=Tabeljual.getSelectedRow();
+    }//GEN-LAST:event_TabeljualMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(baris!=null){
+            Integer id = (int) this.getTableRumah().getValueAt(baris, 0);
+            controller.setHouse_id(id);
+            Update update = new Update();
+            update.setVisible(true);
+            update.pack();
+            update.setLocationRelativeTo(null);
+            this.dispose();
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public JTable getTableRumah() {
         return Tabeljual;
@@ -276,9 +320,9 @@ public class Menu_Utama_Penjual extends javax.swing.JFrame {
     private javax.swing.JButton buttonhistory;
     private javax.swing.JButton buttoninsert;
     private javax.swing.JButton buttoninsert1;
+    private javax.swing.JButton buttonprofile;
     private javax.swing.JButton buttonsell;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
