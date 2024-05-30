@@ -169,4 +169,8 @@ public class ControllerRumah {
         ModelTableRumah table = new ModelTableRumah(daftarRumah);
         halamanTable.getTableRumah().setModel(table);
     }
+    
+    public void updateStatus(){
+        daoRumah.updateStatus(house_id);
+    }
 }

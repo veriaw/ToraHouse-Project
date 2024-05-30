@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.ControllerAuctioneer;
+import javax.swing.JTable;
+
 /**
  *
  * @author adity
@@ -13,8 +16,11 @@ public class History extends javax.swing.JFrame {
     /**
      * Creates new form History
      */
+    ControllerAuctioneer controller;
     public History() {
         initComponents();
+        controller = new ControllerAuctioneer(this);
+        controller.showHistory();
     }
 
     /**
@@ -120,8 +126,8 @@ public class History extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(297, 297, 297))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(133, 133, 133))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,6 +181,10 @@ public class History extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonbuy8ActionPerformed
 
+    public JTable getTableHistory() {
+        return jTable1;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -211,48 +221,13 @@ public class History extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonbuy;
-    private javax.swing.JButton buttonbuy1;
-    private javax.swing.JButton buttonbuy2;
-    private javax.swing.JButton buttonbuy3;
-    private javax.swing.JButton buttonbuy4;
-    private javax.swing.JButton buttonbuy5;
-    private javax.swing.JButton buttonbuy6;
     private javax.swing.JButton buttonbuy8;
-    private javax.swing.JButton buttonhistory;
-    private javax.swing.JButton buttonhistory1;
-    private javax.swing.JButton buttonhistory2;
-    private javax.swing.JButton buttonhistory3;
-    private javax.swing.JButton buttonhistory4;
-    private javax.swing.JButton buttonhistory5;
-    private javax.swing.JButton buttonhistory6;
     private javax.swing.JButton buttonhistory8;
-    private javax.swing.JButton buttonprofile;
-    private javax.swing.JButton buttonprofile1;
-    private javax.swing.JButton buttonprofile2;
-    private javax.swing.JButton buttonprofile3;
-    private javax.swing.JButton buttonprofile4;
-    private javax.swing.JButton buttonprofile5;
-    private javax.swing.JButton buttonprofile6;
     private javax.swing.JButton buttonprofile8;
-    private javax.swing.JButton buttonsell;
-    private javax.swing.JButton buttonsell1;
-    private javax.swing.JButton buttonsell2;
-    private javax.swing.JButton buttonsell3;
-    private javax.swing.JButton buttonsell4;
-    private javax.swing.JButton buttonsell5;
-    private javax.swing.JButton buttonsell6;
     private javax.swing.JButton buttonsell8;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

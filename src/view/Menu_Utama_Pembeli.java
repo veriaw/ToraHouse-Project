@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.ControllerAuctioneer;
 import controller.ControllerRumah;
 import javax.swing.JTable;
 
@@ -17,10 +18,12 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
      * Creates new form Menu_Utama_Pembeli
      */
     ControllerRumah controller;
+    ControllerAuctioneer controllerBargain;
     Integer baris;
     public Menu_Utama_Pembeli() {
         initComponents();
         controller = new ControllerRumah(this);
+        controllerBargain = new ControllerAuctioneer(this);
         controller.showAllHouse();
     }
 
@@ -164,6 +167,11 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
 
         buttonshowoffer.setBackground(new java.awt.Color(0, 204, 204));
         buttonshowoffer.setText("SHOW OFFER");
+        buttonshowoffer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonshowofferActionPerformed(evt);
+            }
+        });
 
         buttonshowmarket.setBackground(new java.awt.Color(0, 204, 204));
         buttonshowmarket.setText("SHOW MARKET");
@@ -175,6 +183,11 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
 
         buttonbatalkanoffer.setBackground(new java.awt.Color(204, 0, 51));
         buttonbatalkanoffer.setText("Batalkan Offer");
+        buttonbatalkanoffer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonbatalkanofferActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -342,6 +355,17 @@ public class Menu_Utama_Pembeli extends javax.swing.JFrame {
     private void buttonshowmarketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonshowmarketActionPerformed
         controller.showAllHouse();
     }//GEN-LAST:event_buttonshowmarketActionPerformed
+
+    private void buttonshowofferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonshowofferActionPerformed
+        controllerBargain.showBargain();
+    }//GEN-LAST:event_buttonshowofferActionPerformed
+
+    private void buttonbatalkanofferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonbatalkanofferActionPerformed
+        if(baris!=null){
+            controllerBargain.deleteBargain(baris);
+            controllerBargain.showBargain();
+        }
+    }//GEN-LAST:event_buttonbatalkanofferActionPerformed
     
     public JTable getTableRumah() {
         return Tabelbeli;

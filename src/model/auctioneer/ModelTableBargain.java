@@ -11,12 +11,12 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Lenovo
  */
-public class ModelTableAuctioneer extends AbstractTableModel {
+public class ModelTableBargain extends AbstractTableModel {
 
     List<ModelAuctioneer> daftarAuctioneer;
-    String kolom[]={"ID", "Nama Pelelang", "Alamat Rumah", "Price"};
+    String kolom[]={"ID", "Nama Pemilik", "Alamat Rumah", "No HP", "Price", "Bargain Price","Status"};
     
-    public ModelTableAuctioneer(List<ModelAuctioneer> daftarAuctioneer) {
+    public ModelTableBargain(List<ModelAuctioneer> daftarAuctioneer) {
         this.daftarAuctioneer = daftarAuctioneer;
     }
     
@@ -36,11 +36,17 @@ public class ModelTableAuctioneer extends AbstractTableModel {
             case 0:
                 return daftarAuctioneer.get(rowIndex).getId();
             case 1:
-                return daftarAuctioneer.get(rowIndex).getNamaUser();
+                return daftarAuctioneer.get(rowIndex).getNamaPemilik();
             case 2:
                 return daftarAuctioneer.get(rowIndex).getAlamat();
             case 3:
+                return daftarAuctioneer.get(rowIndex).getNoHp();
+            case 4:
+                return daftarAuctioneer.get(rowIndex).getStartPrice();
+            case 5:
                 return daftarAuctioneer.get(rowIndex).getPrice();
+            case 6:
+                return daftarAuctioneer.get(rowIndex).getStatus();
             default:
                 return null;
         }

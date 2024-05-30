@@ -15,4 +15,8 @@ public interface InterfaceDAOAuctioneer {
     public void update(ModelAuctioneer auctioneer);
     public void delete(int id);
     public List<ModelAuctioneer> getAll();
+    public List<ModelAuctioneer> showBargain(Integer id);
+    public List<ModelAuctioneer> showOffer(Integer id);
+    public void takeOffer(Integer id);
+    public List<ModelAuctioneer> showHistory(Integer id);
 }

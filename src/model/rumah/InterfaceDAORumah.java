@@ -18,4 +18,5 @@ public interface InterfaceDAORumah {
     public List<ModelRumah> getShowSell(Integer id);
     public ModelRumah getCurrentHouse(Integer id);
     public List<ModelRumah> filterHouse(Integer max, Integer min);
+    public void updateStatus(Integer id);
 }

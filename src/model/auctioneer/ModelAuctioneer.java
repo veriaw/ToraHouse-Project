@@ -9,8 +9,10 @@ package model.auctioneer;
  * @author Lenovo
  */
 public class ModelAuctioneer {
-    private Integer id, houseId, profileId, price, alamat, namaUser;
-
+    private Integer id, houseId, profileId, price, ownerId, startPrice;
+    private String alamat, namaUser, namaPemilik, status, noHp;
+    
+    
     public Integer getId() {
         return id;
     }
@@ -19,23 +21,29 @@ public class ModelAuctioneer {
         this.id = id;
     }
 
-    public Integer getAlamat() {
+    public String getAlamat() {
         return alamat;
     }
 
-    public void setAlamat(Integer alamat) {
+    public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
 
-    public Integer getNamaUser() {
+    public String getNamaUser() {
         return namaUser;
     }
 
-    public void setNamaUser(Integer namaUser) {
+    public void setNamaUser(String namaUser) {
         this.namaUser = namaUser;
     }
 
-    
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
+    }   
     
     public Integer getHouseId() {
         return houseId;
@@ -59,6 +67,40 @@ public class ModelAuctioneer {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getNamaPemilik() {
+        return namaPemilik;
+    }
+
+    public void setNamaPemilik(String namaPemilik) {
+        this.namaPemilik = namaPemilik;
+    }
+
+    public String getNoHp() {
+        return noHp;
+    }
+
+    public void setNoHp(String noHp) {
+        this.noHp = noHp;
+    }
+
+    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Integer getStartPrice() {
+        return startPrice;
+    }
+
+    public void setStartPrice(Integer startPrice) {
+        this.startPrice = startPrice;
     }
 
     

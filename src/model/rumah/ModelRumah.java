@@ -9,7 +9,7 @@ package model.rumah;
  * @author Lenovo
  */
 public class ModelRumah {
-    private Integer id, luasTanah, luasBangunan, kamarTidur, kamarMandi, garasi, price;
+    private Integer id, luasTanah, luasBangunan, kamarTidur, kamarMandi, garasi, price, sellerId;
     private String alamat, status;
 
     public Integer getId() {
@@ -26,6 +26,14 @@ public class ModelRumah {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public Integer getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(Integer sellerId) {
+        this.sellerId = sellerId;
     }
 
     

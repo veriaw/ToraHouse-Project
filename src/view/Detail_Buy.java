@@ -4,7 +4,9 @@
  */
 package view;
 
+import controller.ControllerAuctioneer;
 import controller.ControllerRumah;
+import javax.swing.JTable;
 import model.rumah.ModelRumah;
 
 /**
@@ -17,12 +19,14 @@ public class Detail_Buy extends javax.swing.JFrame {
      * Creates new form Detail
      */
     ControllerRumah controller;
-    
+    ControllerAuctioneer controllerBargain;
+    Integer baris;
     public Detail_Buy() {
         initComponents();
         controller = new ControllerRumah(this);
+        controllerBargain = new ControllerAuctioneer(this);
         controller.showCurrentHouse();
-        
+        controllerBargain.showOffer();
     }
     
     public void setAlamat(String alamat) {
@@ -55,6 +59,10 @@ public class Detail_Buy extends javax.swing.JFrame {
     
     public void setStatus(String status) {
         labelstatus.setText(status);
+    }
+    
+    public JTable getTableOffer() {
+        return Tabeldetail;
     }
 
     /**
@@ -205,11 +213,21 @@ public class Detail_Buy extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Tabeldetail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabeldetailMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Tabeldetail);
 
         buttonambiltawaran.setBackground(new java.awt.Color(255, 255, 102));
         buttonambiltawaran.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         buttonambiltawaran.setText("AMBIL TAWARAN");
+        buttonambiltawaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonambiltawaranActionPerformed(evt);
+            }
+        });
 
         buttonkembali.setBackground(new java.awt.Color(0, 204, 153));
         buttonkembali.setText("KEMBALI KE MENU");
@@ -282,6 +300,17 @@ public class Detail_Buy extends javax.swing.JFrame {
         sell.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_buttonkembaliActionPerformed
+
+    private void TabeldetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabeldetailMouseClicked
+        baris=Tabeldetail.getSelectedRow();
+    }//GEN-LAST:event_TabeldetailMouseClicked
+
+    private void buttonambiltawaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonambiltawaranActionPerformed
+        controllerBargain.takeOffer(baris);
+        controller.updateStatus();
+        controller.showCurrentHouse();
+        controllerBargain.showOffer();
+    }//GEN-LAST:event_buttonambiltawaranActionPerformed
 
     /**
      * @param args the command line arguments

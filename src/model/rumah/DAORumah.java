@@ -117,7 +117,7 @@ public class DAORumah implements InterfaceDAORumah {
         try{
             listRumah = new ArrayList<>();
             Statement statement = Connector.Connect().createStatement();
-            String query = "SELECT * FROM sell_house;";
+            String query = "SELECT * FROM sell_house WHERE status='ForSale';";
             ResultSet resultSet = statement.executeQuery(query);
             
             while (resultSet.next()) {
@@ -201,6 +201,7 @@ public class DAORumah implements InterfaceDAORumah {
             home.setGarasi(resultSet.getInt("garasi"));
             home.setPrice(resultSet.getInt("start_price"));
             home.setStatus(resultSet.getString("status"));
+            home.setSellerId(resultSet.getInt("seller_id"));
             
             
             // Menutup koneksi untuk menghemat penggunaan memory.
@@ -216,7 +217,7 @@ public class DAORumah implements InterfaceDAORumah {
          List<ModelRumah> listRumah = null;
         try{
             listRumah = new ArrayList<>();
-            String query = "SELECT * FROM sell_house WHERE start_price<=? && start_price>=?;";
+            String query = "SELECT * FROM sell_house WHERE start_price<=? AND start_price>=? AND status='ForSale';";
             PreparedStatement statement;
             statement = Connector.Connect().prepareStatement(query);
             statement.setInt(1, max);
@@ -245,6 +246,32 @@ public class DAORumah implements InterfaceDAORumah {
             System.out.println("Error: " + e.getLocalizedMessage());
         }
         return listRumah;
+    }
+
+    @Override
+    public void updateStatus(Integer id) {
+        try {
+            // Perintah query disimpan ke dalam variabel "query"
+            String query = "UPDATE sell_house SET status='Sold' WHERE id=?;";
+            
+            /* 
+              Memasukkan nama dan nim dari input user 
+              beserta id yang didapat dari data yang mau diubah ke dalam query 
+              untuk mengisi bagian "?".
+            */
+            PreparedStatement statement;
+            statement = Connector.Connect().prepareStatement(query);
+            statement.setInt(1, id);
+            
+            // Menjalankan query untuk menghapus data mahasiswa yang dipilih
+            statement.executeUpdate();
+            
+            // Menutup koneksi untuk menghemat penggunaan memory.
+            statement.close();
+        } catch (SQLException e) {
+            // Menampilkan pesan error ketika gagal edit data.
+            System.out.println("update Failed! (" + e.getMessage() + ")");
+        }
     }
     
     
