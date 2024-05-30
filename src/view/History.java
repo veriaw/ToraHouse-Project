@@ -179,6 +179,11 @@ public class History extends javax.swing.JFrame {
 
     private void buttonbuy8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonbuy8ActionPerformed
         // TODO add your handling code here:
+        Menu_Utama_Pembeli buy = new Menu_Utama_Pembeli();
+        buy.setVisible(true);
+        buy.pack();
+        buy.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_buttonbuy8ActionPerformed
 
     public JTable getTableHistory() {

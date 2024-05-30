@@ -77,7 +77,7 @@ public class ControllerAuctioneer {
     public void deleteBargain(Integer baris){
         // Mengambil id dan nama berdasarkan baris yang dipilih
         Integer id = (int) tableBargain.getTableRumah().getValueAt(baris, 0);
-        String nama = tableBargain.getTableRumah().getValueAt(baris, 3).toString();
+        String nama = tableBargain.getTableRumah().getValueAt(baris, 2).toString();
 
         // Membuat Pop-Up untuk mengonfirmasi apakah ingin menghapus data
         int input = JOptionPane.showConfirmDialog(

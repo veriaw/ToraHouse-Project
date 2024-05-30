@@ -52,16 +52,18 @@ public class ControllerUser {
     public void register (){
         if(register.getInputNama().equals("")||register.getKelamin().equals("")||register.getUsername().equals("")||register.getPassword().equals("")||register.getNoHp().equals("")){
             JOptionPane.showMessageDialog(null, "Lengkapi Form Terlebih Dahulu!");
-        }
-        ModelUser user= new ModelUser();
-        user.setNama(register.getInputNama());
-        user.setKelamin(register.getKelamin());
-        user.setUsername(register.getUsername());
-        user.setPassword(register.getPassword());
-        user.setNoHp(register.getNoHp());
+        }else{
+            ModelUser user= new ModelUser();
+            user.setNama(register.getInputNama());
+            user.setKelamin(register.getKelamin());
+            user.setUsername(register.getUsername());
+            user.setPassword(register.getPassword());
+            user.setNoHp(register.getNoHp());
         
-        daoUser.insert(user);
+            daoUser.insert(user);
+        }  
     }
+    
     
     public boolean autentikasi(String username, String password){
         ModelUser user=null;

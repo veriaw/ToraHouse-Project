@@ -122,7 +122,6 @@ public class ControllerRumah {
     }
     
     public void showCurrentHouse(){
-        
         System.out.println(house_id);
         ModelRumah rumah = new ModelRumah();
         rumah=daoRumah.getCurrentHouse(house_id);
@@ -134,6 +133,20 @@ public class ControllerRumah {
         detail.setGarasi(rumah.getGarasi());
         detail.setPrice(rumah.getPrice());
         detail.setStatus(rumah.getStatus());
+    }
+    
+    public void showCurrentHouse(Update up){
+        
+        System.out.println(house_id);
+        ModelRumah rumah = new ModelRumah();
+        rumah=daoRumah.getCurrentHouse(house_id);
+        up.setAlamat(rumah.getAlamat());
+        up.setLuasTanah(rumah.getLuasTanah());
+        up.setLuasBangunan(rumah.getLuasBangunan());
+        up.setKamarMandi(rumah.getKamarMandi());
+        up.setKamarTidur(rumah.getKamarTidur());
+        up.setGarasi(rumah.getGarasi());
+        up.setPrice(rumah.getPrice());
     }
     
     public void showOfferedHouse(){
