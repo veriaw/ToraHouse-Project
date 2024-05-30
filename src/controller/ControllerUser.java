@@ -5,6 +5,7 @@
 package controller;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.user.DAOUser;
 import model.user.InterfaceDAOUser;
 import model.user.ModelUser;
@@ -58,6 +59,7 @@ public class ControllerUser {
         
         daoUser.insert(user);
     }
+    
     
     public boolean autentikasi(String username, String password){
         ModelUser user=null;

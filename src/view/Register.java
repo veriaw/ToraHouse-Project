@@ -5,6 +5,7 @@
 package view;
 
 import controller.ControllerUser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,6 +47,7 @@ public class Register extends javax.swing.JFrame {
         jeniskelamin = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         inputnotelp = new javax.swing.JTextField();
+        buttonkembali = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,18 +93,24 @@ public class Register extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("No Telp");
 
+        buttonkembali.setBackground(new java.awt.Color(0, 204, 204));
+        buttonkembali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonkembali.setText("Kembali");
+        buttonkembali.setToolTipText("");
+        buttonkembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonkembaliActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(226, 226, 226))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
+                        .addGap(41, 41, 41)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
@@ -111,25 +119,30 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inputpassword, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                            .addComponent(inputpassword)
                             .addComponent(inputnama)
                             .addComponent(inputusername)
                             .addComponent(buttondaftar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jeniskelamin, 0, 393, Short.MAX_VALUE)
-                            .addComponent(inputnotelp, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jeniskelamin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inputnotelp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonkembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(jLabel4)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                        .addGap(223, 223, 223)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel4))
+                            .addComponent(jLabel1))))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputnama, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -151,7 +164,9 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(27, 27, 27)
                 .addComponent(buttondaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(18, 18, 18)
+                .addComponent(buttonkembali, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Coklat Sederhana dan Minimalis Rumah dan Dekorasi Logo (3) (1).png"))); // NOI18N
@@ -190,13 +205,26 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttondaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttondaftarActionPerformed
+
         controller.register();
-        Menu_Utama_Pembeli buy = new Menu_Utama_Pembeli();
+        Menu_Utama_Pembeli buy = new Menu_Utama_Pembeli();    
         buy.setVisible(true);
         buy.pack();
         buy.setLocationRelativeTo(null);
         this.dispose();
+        
     }//GEN-LAST:event_buttondaftarActionPerformed
+
+
+    
+    private void buttonkembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonkembaliActionPerformed
+        // TODO add your handling code here:[]=
+        Login register = new Login();
+        register.setVisible(true);
+        register.pack();
+        register.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonkembaliActionPerformed
     
     public String getInputNama() {
         return inputnama.getText();
@@ -220,6 +248,7 @@ public class Register extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -254,6 +283,7 @@ public class Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttondaftar;
+    private javax.swing.JButton buttonkembali;
     private javax.swing.JTextField inputnama;
     private javax.swing.JTextField inputnotelp;
     private javax.swing.JTextField inputpassword;
