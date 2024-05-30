@@ -191,10 +191,10 @@ public class Register extends javax.swing.JFrame {
 
     private void buttondaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttondaftarActionPerformed
         controller.register();
-        Menu_Utama_Pembeli buy = new Menu_Utama_Pembeli();
-        buy.setVisible(true);
-        buy.pack();
-        buy.setLocationRelativeTo(null);
+        Login auth = new Login();
+        auth.setVisible(true);
+        auth.pack();
+        auth.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_buttondaftarActionPerformed
     

@@ -48,6 +48,9 @@ public class ControllerAuctioneer {
     }
     
     public void bargain(){
+        if(auction.getBargain().equals("")){
+            JOptionPane.showMessageDialog(null, "Masukan Nominal Penawaran!");
+        }
         ModelRumah house = new ModelRumah();
         DAORumah daoRumah = new DAORumah();
         house=daoRumah.getCurrentHouse(ControllerRumah.getHouse_id());

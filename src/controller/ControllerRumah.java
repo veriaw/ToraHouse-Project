@@ -67,6 +67,9 @@ public class ControllerRumah {
     
     
     public void sellHouse(){
+        if(sell.getInputAlamat().equals("")||sell.getLuasTanah().equals("")||sell.getLuasBangunan().equals("")||sell.getKamarMandi().equals("")||sell.getKamarTidur().equals("")||sell.getGarasi().equals("")||sell.getPrice().equals("")){
+            JOptionPane.showMessageDialog(null, "Lengkapi Form Terlebih Dahulu!");
+        }
         ModelRumah home= new ModelRumah();
         home.setAlamat(sell.getInputAlamat());
         home.setLuasTanah(sell.getLuasTanah());
@@ -149,6 +152,9 @@ public class ControllerRumah {
     }
     
     public void updateHouse(){
+        if(up.getInputAlamat().equals("")||up.getLuasTanah().equals("")||up.getLuasBangunan().equals("")||up.getKamarMandi().equals("")||up.getKamarTidur().equals("")||up.getGarasi().equals("")||up.getPrice().equals("")){
+            JOptionPane.showMessageDialog(null, "Lengkapi Form Terlebih Dahulu!");
+        }
         ModelRumah home= new ModelRumah();
         home.setAlamat(up.getInputAlamat());
         home.setLuasTanah(up.getLuasTanah());
